@@ -22,3 +22,9 @@ Ideal para testar conectividade de uma API externa.
 ## ⚙️ Alterações
 - Somente o status do GitHub
 - **Nova funcionalidade:** Pega a resposta em ms de tempo
+- Foi adicionada uma nova chave chamada checked_at, que registra o horario exato em que a checagem fa API foi realizada. 
+
+##  ✅ Bugs Arrumados :
+- A URL tem "/) no final → sintaxe inválida.
+- strfime escrito errado → deveria ser strftime.
+- if name == "main": → deveria ser if name == "main":.
