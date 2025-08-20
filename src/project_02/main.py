@@ -1,14 +1,16 @@
 import requests
 from datetime import datetime
 
-def checa_status_github():
-    resposta = requests.get("https://api.github.com")
+
+def get_github_status():
+    response = requests.get("https://api.github.com")
     return {
-        "codigo_status": resposta.status_code,
-        "tempo_resposta_ms": resposta.elapsed.total_seconds() * 1000,
-        "verificado_em": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "status_cooded": response.status_code,
+        "response_time_ms": response.elapsed.total_seconds() * 1000,
+        "checked_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
-if __name__ == "__main__":
-    github_info = checa_status_github()
-    print(f"[{github_info['verificado_em']}] STATUS_PROJETO_API | Código: {github_info['codigo_status']} - Tempo: {github_info['tempo_resposta_ms']:.2f} ms")
+if name == "main":
+    status = get_github_status()
+    print(f"[{status['checked_at']}] PROJETO_API do GitHub | Status: {status['status_cooded']} - TEMPO: {status['response_time_ms']:.2f} ms")
+
