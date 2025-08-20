@@ -1,6 +1,7 @@
 import requests
 from datetime import datetime
 
+
 def get_github_status():
     response = requests.get("https://api.github.com")
     return {
@@ -12,3 +13,4 @@ def get_github_status():
 if name == "main":
     status = get_github_status()
     print(f"[{status['checked_at']}] PROJETO_API do GitHub | Status: {status['status_cooded']} - TEMPO: {status['response_time_ms']:.2f} ms")
+
