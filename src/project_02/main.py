@@ -1,14 +1,16 @@
-import requests
-from datetime import datetime
+from project_02.github_client import fetch_status
+from project_02.latency_checker import check_latency
+from project_02.parsers import parse_official_status, parse_latency_status
 
-def get_github_status():
-    response = requests.get("https://api.github.com")
-    return {
-        "status_code": response.status_code,
-        "response_time_ms": response.elapsed.total_seconds() * 1000,
-        "checked_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    }
+def main():
+    official_data = fetch_status()
+    latency_data = check_latency()
 
-if name == "main":
-    status = get_github_status()
-    print(f"[{status['checked_at']}] PROJETO_API do GitHub | Status: {status['status_code']} - TEMPO: {status['response_time_ms']:.2f} ms")
+    print("Status Oficial:")
+    print(parse_official_status(official_data))
+
+    print("Latência da API:")
+    print(parse_latency_status(latency_data))
+
+if __name__ == "__main__":
+    main()
