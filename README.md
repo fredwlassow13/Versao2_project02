@@ -54,3 +54,4 @@ PYTHONPATH=src pytest -v
 - Corrigida a URL que tinha `"/)` no final (sintaxe inválida).  
 - Corrigido `strfime` → agora está `strftime`.  
 - Corrigido `if name == "main":` → agora está `if __name__ == "__main__":`.
+- Corrigido o pull request feito possuia um erro no github_client.py , que acabava por dar erro no teste test_github_status_values, tornando inviável o merge com a atual versão do projeto evitando uma regressão.
